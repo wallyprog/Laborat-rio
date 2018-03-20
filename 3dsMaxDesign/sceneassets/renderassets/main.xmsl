@@ -1,0 +1,368 @@
+<root>
+  <metasl_code intrinsic_nodes="true"/>
+  <metasl_code file_name="color_balance.msl"/>
+  <metasl_code file_name="conversion_scalar_color.msl"/>
+  <metasl_code file_name="illumination_phong.msl"/>
+  <metasl_code file_name="math_float.msl"/>
+  <metasl_code file_name="normals_make_normal.msl"/>
+  <metasl_code file_name="texture_lookup.msl"/>
+
+  <phenomenon name="main">
+    <input name="amount" type="float" display_name="emissive brightness" value="1.77665">
+      <annotation name="display_name">
+        <annotation_member name="param0" type="String" value="Amount"/>
+      </annotation>
+      <annotation name="soft_range">
+        <annotation_member name="param0" type="float" value="0"/>
+        <annotation_member name="param1" type="float" value="2"/>
+      </annotation>
+      <annotation name="description">
+        <annotation_member name="param0" type="String" value="The amount to scale the color."/>
+      </annotation>
+    </input>
+    <input name="right_2" type="float" display_name="gloss multiplier" value="0.563452"/>
+    <input name="amount_2" type="float" display_name="material brightness" value="1">
+      <annotation name="display_name">
+        <annotation_member name="param0" type="String" value="Amount"/>
+      </annotation>
+      <annotation name="soft_range">
+        <annotation_member name="param0" type="float" value="0"/>
+        <annotation_member name="param1" type="float" value="2"/>
+      </annotation>
+      <annotation name="description">
+        <annotation_member name="param0" type="String" value="The amount to scale the color."/>
+      </annotation>
+    </input>
+    <input name="amount_3" type="float" display_name="specular brightness" value="1.77665">
+      <annotation name="display_name">
+        <annotation_member name="param0" type="String" value="Amount"/>
+      </annotation>
+      <annotation name="soft_range">
+        <annotation_member name="param0" type="float" value="0"/>
+        <annotation_member name="param1" type="float" value="2"/>
+      </annotation>
+      <annotation name="description">
+        <annotation_member name="param0" type="String" value="The amount to scale the color."/>
+      </annotation>
+    </input>
+    <output name="result" type="Color" value="0 0 0 0"/>
+
+    <node name="color" class="Texture_lookup_2d">
+      <input name="texture" value="D:/Work/Models/creatures/DW3/colors.jpg"/>
+      <input name="texture_space" value="0"/>
+      <input name="texture_uv" value="0 0"/>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="3.93314" height="4.42609" open_width="3.93314" open_height="4.42609" position="-9.63827 7.18139" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="1.5854" tilt="0.0553983" zoom="2.45" pan="0 0" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.875398" tilt="0.695398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="specular" class="Texture_lookup_2d">
+      <input name="texture" value="D:/Work/Models/creatures/DW3/specular.jpg"/>
+      <input name="texture_space" value="0"/>
+      <input name="texture_uv" value="0 0"/>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="4.02313" height="4.70271" open_width="4.02313" open_height="4.70271" position="-9.65282 -2.42518" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="1.5754" tilt="-0.0646018" zoom="2.25" pan="0 0" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Color_brightness_2" class="Color_brightness">
+      <input name="color" value="0 0 0 1">
+        <attachment target_name="result" target_node="specular"/>
+      </input>
+      <input name="amount" value="1.77665">
+        <attachment target_name="amount_3"/>
+      </input>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="2.2795" height="2.3" open_width="2.2795" open_height="2.3" position="-2.93384 -3.20907" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Conversion_color_to_scalar_1" class="Conversion_color_to_scalar">
+      <input name="color" value="1 1 1 1">
+        <attachment target_name="result" target_node="Color_brightness_2"/>
+      </input>
+      <output name="scalar" value="0"/>
+      <gui_data width="3.28014" height="2.2" open_width="3.28014" open_height="2.2" position="0.252998 -1.72242" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="gloss" class="Texture_lookup_2d">
+      <input name="texture" value="D:/Work/Models/creatures/DW3/gloss.jpg"/>
+      <input name="texture_space" value="0"/>
+      <input name="texture_uv" value="0 0"/>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="3.97315" height="5.1452" open_width="3.97315" open_height="5.1452" position="-9.71615 -7.7632" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.0153992" tilt="-0.214602" zoom="1.85" pan="-0.0949999 0.0199999" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.715398" tilt="0.735398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Conversion_color_to_scalar_3" class="Conversion_color_to_scalar">
+      <input name="color" value="1 1 1 1">
+        <attachment target_name="result" target_node="gloss"/>
+      </input>
+      <output name="scalar" value="0"/>
+      <gui_data width="3.28014" height="2.2" open_width="3.28014" open_height="2.2" position="-4.71828 -7.77854" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="0.895398" tilt="0.415398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="1.95" pan="0 0" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="gloss_multiplier" class="Math_float_multiply">
+      <input name="left" value="1">
+        <attachment target_name="scalar" target_node="Conversion_color_to_scalar_3"/>
+      </input>
+      <input name="right" value="0.563452">
+        <attachment target_name="right_2"/>
+      </input>
+      <output name="result" value="0"/>
+      <gui_data width="2.53078" height="2.3" open_width="2.53078" open_height="2.3" position="-0.564911 -7.74803" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\left" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\result" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\left" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\right" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\right" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="1.0654" tilt="0.465398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Math_float_compress_1" class="Math_float_compress">
+      <input name="scalar" value="0">
+        <attachment target_name="result" target_node="gloss_multiplier"/>
+      </input>
+      <input name="low" value="1"/>
+      <input name="high" value="100"/>
+      <output name="result" value="0"/>
+      <gui_data width="2.64784" height="2.4" open_width="2.64784" open_height="2.4" position="3.03933 -7.66848" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\low" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="float" type_code="scalar" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\high" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="normal" class="Texture_lookup_2d">
+      <input name="texture" value="D:/Work/Models/creatures/DW3/normals.jpg"/>
+      <input name="texture_space" value="0"/>
+      <input name="texture_uv" value="0 0"/>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="3.99749" height="4.08874" open_width="3.99749" open_height="4.08874" position="-9.65844 -12.4418" view_translation="0 0" view_scale="1" open_state="closed" selected_state="true">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.745398" tilt="0.765398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Normals_make_normal_1" class="Normals_make_normal">
+      <input name="color" value="0.5 0.5 1 0">
+        <attachment target_name="result" target_node="normal"/>
+      </input>
+      <input name="amount" value="1"/>
+      <output name="result" value="0 0 0"/>
+      <gui_data width="2.7441" height="2.3" open_width="2.7441" open_height="2.3" position="7.01277 -12.5334" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="float3" type_code="vector3" type_array_size="1" show_preview="true" orbit="-2.1646" tilt="-1.5446" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="1" axis_length="0.5" vector_type="1" color_range_min="-1" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="float3" type_code="vector3" type_array_size="1" show_preview="true" orbit="0.795398" tilt="0.685398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="1" axis_length="0.5" vector_type="1" color_range_min="-1" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Illumination_phong_1" class="Illumination_phong">
+      <input name="diffuse_color" value="1 1 1 1">
+        <attachment target_name="result" target_node="color"/>
+      </input>
+      <input name="diffuse_scalar" value="1"/>
+      <input name="specular_color" value="1 1 1 1">
+        <attachment target_name="result" target_node="Color_brightness_2"/>
+      </input>
+      <input name="specular_scalar" value="1">
+        <attachment target_name="scalar" target_node="Conversion_color_to_scalar_1"/>
+      </input>
+      <input name="specular_shininess" value="16.7513">
+        <attachment target_name="result" target_node="Math_float_compress_1"/>
+      </input>
+      <input name="normal" type="float3" value="0 0 0">
+        <attachment target_name="result" target_node="Normals_make_normal_1"/>
+      </input>
+      <output name="sum" value="0 0 0 0"/>
+      <output name="diffuse" value="0 0 0 0"/>
+      <output name="specular" value="0 0 0 0"/>
+      <gui_data width="3.99158" height="5.0553" open_width="3.99158" open_height="5.0553" position="6.58801 7.00359" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\specular" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\sum" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="-7.50452" tilt="1.5454" zoom="2.5" pan="-0.0549999 0.0699999" preview_object="5" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="true"/>
+          <preview_data_element name=".main_1\specular_color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\diffuse_color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\specular_shininess" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\specular_shininess" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\specular_color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\normal" type_name="float3" type_code="vector3" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="-1" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\specular" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\specular_scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\diffuse_color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\sum" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.0153967" tilt="1.4054" zoom="0.8" pan="-0.04 -0.185" preview_object="5" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\normal" type_name="float3" type_code="vector3" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="-1" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\diffuse" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\diffuse_scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\diffuse" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\diffuse_scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\specular_scalar" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Color_brightness_1" class="Color_brightness">
+      <input name="color" value="0 0 0 1">
+        <attachment target_name="sum" target_node="Illumination_phong_1"/>
+      </input>
+      <input name="amount" value="1">
+        <attachment target_name="amount_2"/>
+      </input>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="2.2795" height="2.3" open_width="2.2795" open_height="2.3" position="15.1749 9.78353" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="emissive" class="Texture_lookup_2d">
+      <input name="texture" value="D:/Work/Models/creatures/DW3/emissive.jpg"/>
+      <input name="texture_space" value="0"/>
+      <input name="texture_uv" value="0 0"/>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="3.95853" height="4.12006" open_width="3.95853" open_height="4.12006" position="-9.6035 2.39081" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.0353982" tilt="0.0553983" zoom="2.25" pan="0 0" preview_object="0" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture" type_name="texture2D" type_code="texture2d" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.865398" tilt="1.3554" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\texture_uv" type_name="float2" type_code="vector2" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="false" suspend_float_texture_update="false"/>
+          <preview_data_element name="\texture_space" type_name="int" type_code="int32" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="emissive_brightness" class="Color_brightness">
+      <input name="color" value="0 0 0 1">
+        <attachment target_name="result" target_node="emissive"/>
+      </input>
+      <input name="amount" value="1.77665">
+        <attachment target_name="amount"/>
+      </input>
+      <output name="result" value="0 0 0 0"/>
+      <gui_data width="2.2795" height="2.3" open_width="2.2795" open_height="2.3" position="-0.461594 1.88109" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name="\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\color" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="1.4754" tilt="0.405398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+    <node name="Math_color_add_2" class="Math_color_add">
+      <input name="left" value="0 0 0 1">
+        <attachment target_name="result" target_node="Color_brightness_1"/>
+      </input>
+      <input name="right" value="0 0 0 1">
+        <attachment target_name="result" target_node="emissive_brightness"/>
+      </input>
+      <output name="result" value="0 0 0 1">
+        <attachment target_name="result"/>
+      </output>
+      <gui_data width="2.15113" height="2.3" open_width="2.15113" open_height="2.3" position="19.0056 2.21261" view_translation="0 0" view_scale="1" open_state="closed" selected_state="false">
+        <preview_data>
+          <preview_data_element name=".main_1\left" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\right" type_name="Color" type_code="color" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+          <preview_data_element name=".main_1\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="0.995398" tilt="0.715398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        </preview_data>
+      </gui_data>
+    </node>
+
+  </phenomenon>
+
+  <node name="main_1" class="main">
+    <input name="amount" value="1"/>
+    <input name="right_2" value="1"/>
+    <input name="amount_2" value="1"/>
+    <input name="amount_3" value="1"/>
+    <output name="result" value="0 0 0 0"/>
+    <gui_data width="1.12975" height="2.1" open_width="1.12975" open_height="2.1" position="5.41482 13.2845" view_translation="-5.06648 2.17609" view_scale="0.0266429" open_state="maximized" selected_state="false">
+      <preview_data>
+        <preview_data_element name="\result" type_name="Color" type_code="color" type_array_size="1" show_preview="true" orbit="1.1954" tilt="1.5754" zoom="2.15" pan="0.03 0.125" preview_object="5" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        <preview_data_element name="\amount_2" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        <preview_data_element name="\amount_3" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        <preview_data_element name="\amount" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+        <preview_data_element name="\right_2" type_name="float" type_code="scalar" type_array_size="1" show_preview="false" orbit="0.785398" tilt="0.785398" zoom="2" pan="0 0" preview_object="2" show_children="false" preview_image="0" draw_axis="0" source_space="2" axis_length="0.5" vector_type="1" color_range_min="0" color_range_max="1" color_clamp="true" suspend_float_texture_update="false"/>
+      </preview_data>
+    </gui_data>
+  </node>
+
+  <render_data>
+    <light_list/>
+    <scene_ambient color="0 0 0 0"/>
+  </render_data>
+</root>
